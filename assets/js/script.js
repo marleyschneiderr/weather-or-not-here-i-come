@@ -34,7 +34,10 @@ var searchHistoryNames = function(cityName) {
     if(SearchesSaved.length > 0){
         // putting previous searches into the array that were saved
         var pastSavedSearch = localStorage.getItem("SearchesSaved");
+        SearchesSaved = JSON.parse(pastSavedSearch);
     }
+
+    
 }
 
 
