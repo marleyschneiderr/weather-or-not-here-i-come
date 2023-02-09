@@ -8,6 +8,12 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
-const API_KEY = "7ff1d8af886ebe90b5084ef41fcbb528";
+var apiKey = "7ff1d8af886ebe90b5084ef41fcbb528";
+var SearchesSaved = [];
+
+// cities that were searched already by the user
+var searchHistoryNames = function(cityName) {
+    ('.earlier-search:contains("' + cityName + '")').remove();
+}
 
 

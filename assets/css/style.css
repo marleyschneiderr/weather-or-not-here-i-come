@@ -1,0 +1,15 @@
+.earlier-search {
+    background-color: tan;
+    border-width: thin;
+    border-color: black;
+    margin: 0;
+    text-align: left;
+    height: 50px;
+    width: 375px;
+    line-height: 50px;
+    border-radius: 2.5px;
+    border-style: solid;
+    padding: 0 20px;
+    color: grey;
+
+}
