@@ -38,6 +38,8 @@ var searchHistoryNames = function(cityName) {
     }
 
     
+
+
 }
 
 
