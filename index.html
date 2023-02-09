@@ -36,7 +36,7 @@
                 <div class="form-container">
                     <form id="search-form">
                         <div class="row m-2">
-                            <label for="search-input" class="search-label m-0 text-dark">Search Any City:</label>
+                            <label for="search-input" class="search-label m-2 text-dark">Search Any City:</label>
                         </div>
 
                         <!--Search Label Button-->
@@ -52,16 +52,77 @@
                         </div>
                     </form>
                 </div>
+                <!--This section starts the search history function where users can save their searches with local storage in javascript-->
+                <div id="last-search-container" class="row m-2 last-search-container">
 
-
-
-
-
+                </div>
             </div>
 
+            <!--2nd Column Starts Here-->
+            <div class="col-sm-8 p-0">
+                <!--Weather Conditions in Real Time-->
+                <div id="weather-now-container" class="row d-block">
+                    <!--Weather Title Current-->
+                    <div class="title-now-container">
+                        <h2 id="title-now" class="title-now d-inline"></h2>
+                        <img id="weather-now-icon" class="d-inline" src="" alt="">
+                    </div>
+                    <!--Temperature Now-->
+                    <p class="temperature-now" id="temperature-now"></p>
+                    <!--Wind Speed Now-->
+                    <p class="wind-now" id="wind-now"></p>
+                    <!--Humidity Now-->
+                    <p class="humidity-now" id="humidity-now"></p>
+                </div>
+            <!--5 Day Forecast HTML-->
+            <div class="row upcoming-weather-section">
+                <h2 class="section-title" id="weather-forecast-title">Upcoming Weather Forecast</h2>
+                <div id="forecast-card-wrap" class="forecast-card-wrap d-flex justify-content-between">
+                  <!-- 5-day Weather Forecast Cards -->
+                  <!--Forecast Day 1-->
+                  <div class="forecast-card bg-primary rounded">
+                    <p class="forecast-date" id="forecast-date-1"></p>
+                    <img id="forecast-icon-1" src="" alt="Forecast Icon 1">
+                    <p class="forecast-temperature" id="forecast-temperature-1"></p>
+                    <p class="forecast-humidity" id="forecast-humidity-1"></p>
+                  </div>
+                  <!--Forecast Day 2-->
+                  <div class="forecast-card bg-primary rounded">
+                    <p class="forecast-date" id="forecast-date-2"></p>
+                    <img id="forecast-icon-2" src="" alt="Forecast Icon 2">
+                    <p class="forecast-temperature" id="forecast-temperature-2"></p>
+                    <p class="forecast-humidity" id="forecast-humidity-2"></p>
+                  </div>
+                  <!--Forecast Day 3-->
+                  <div class="forecast-card bg-primary rounded">
+                    <p class="forecast-date" id="forecast-date-3"></p>
+                    <img id="forecast-icon-3" src="" alt="Forecast Icon 3">
+                    <p class="forecast-temperature" id="forecast-temperature-3"></p>
+                    <p class="forecast-humidity" id="forecast-humidity-3"></p>
+                  </div>
+                  <!--Forecast Day 4-->
+                  <div class="forecast-card bg-primary rounded">
+                    <p class="forecast-date" id="forecast-date-4"></p>
+                    <img id="forecast-icon-4" src="" alt="Forecast Icon 4">
+                    <p class="forecast-temperature" id="forecast-temperature-4"></p>
+                    <p class="forecast-humidity" id="forecast-humidity-4"></p>
+                  </div>
+                  <!--Forecast Day 5-->
+                  <div class="forecast-card bg-primary rounded">
+                    <p class="forecast-date" id="forecast-date-5"></p>
+                    <img id="forecast-icon-5" src="" alt="Forecast Icon 5">
+                    <p class="forecast-temperature" id="forecast-temperature-5"></p>
+                    <p class="forecast-humidity" id="forecast-humidity-5"></p>
+                  </div>
+
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
+<script src="./assets/js/script.js"></script>
 
 </body>
 </html>
