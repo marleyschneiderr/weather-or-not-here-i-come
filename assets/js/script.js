@@ -9,8 +9,5 @@
 // THEN I am again presented with current and future conditions for that city
 
 const API_KEY = "7ff1d8af886ebe90b5084ef41fcbb528";
-const API_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&units=metric`;
-
-async function displayWeatherData(c)
 
 
