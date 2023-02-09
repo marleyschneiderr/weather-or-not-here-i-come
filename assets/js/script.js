@@ -37,9 +37,12 @@ var searchHistoryNames = function(cityName) {
         SearchesSaved = JSON.parse(pastSavedSearch);
     }
 
-    
+    // putting the city name into the array of saved searches
+    SearchesSaved.push(cityName);
+    localStorage.setItem("SearchesSaved", JSON.stringify(SearchesSaved));
 
-
-}
+    // restarting the search when a new user comes to the page
+    $("#search-in").val("");
+};
 
 
