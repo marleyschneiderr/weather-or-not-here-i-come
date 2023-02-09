@@ -10,6 +10,8 @@
   rel="stylesheet" 
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+  <!--Link to font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <link rel="stylesheet" href="./Assets/css/style.css">
   <title>API Weather Dashboard</title>
 </head>
@@ -22,6 +24,44 @@
             <h1 class="h1 text-light">API Weather Dashboard</h1>
         </div>
     </header>
+
+<!--Main Section with Weather Icon Content-->
+
+<main class="main-section">
+    <div class="container-fluid">
+        <!--Uses the flex and flex-wrap classes to create a flexible container that wraps items as the screen changes sizes-->
+        <div class="d-flex flex-wrap page-content">
+            <!--Column on left with search bar starts here-->
+            <div class="col-sm-4 bg-light p-3 rounded shadow">
+                <div class="form-container">
+                    <form id="search-form">
+                        <div class="row m-2">
+                            <label for="search-input" class="search-label m-0 text-dark">Search Any City:</label>
+                        </div>
+
+                        <!--Search Label Button-->
+                        <div class="row m-2">
+                            <div class="col-sm-8 p-0 my-auto">
+                                <input type="text" id="search-input" name="seach-input" class="search-input rounded">
+                            </div>
+                            <div class="col-sm-4 p-0">
+                                <button type="submit" class="btn bg-primary rounded search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</main>
 
 </body>
 </html>
