@@ -14,6 +14,27 @@ var SearchesSaved = [];
 // cities that were searched already by the user
 var searchHistoryNames = function(cityName) {
     ('.earlier-search:contains("' + cityName + '")').remove();
+
+    // the entry can be put in with the city name
+    var historySearch = $("<p>");
+    historySearch.addClass("earlier-search");
+    historySearch.text(cityName);
+
+    //creating container that holds the entry that is submitted by pressing the button
+    var containerSearch = $("<div>");
+    containerSearch.addClass("earlier-search-container");
+
+    // use append to make sure entry goes into the container
+    containerSearch.append(historySearch);
+
+    //connecting search history to container with append to correctly display
+    var historySearchContainerEl = $("#last-search-container");
+    historySearchContainerEl.append(containerSearch);
+
+    if(SearchesSaved.length > 0){
+        // putting previous searches into the array that were saved
+        var pastSavedSearch = localStorage.getItem("SearchesSaved");
+    }
 }
 
 
