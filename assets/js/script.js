@@ -42,7 +42,7 @@ var searchHistoryNames = function(cityName) {
     localStorage.setItem("SearchesSaved", JSON.stringify(SearchesSaved));
 
     // restarting the search when a new user comes to the page
-    $("#search-in").val("");
+    $("#search-input").val("");
 };
 
 // actually getting searches to show up in container 
@@ -112,7 +112,7 @@ var WeatherNowSection = function(cityName) {
     })
     .catch(function(err) {
         // resetting the information that is searched
-        $("#search-in").val("");
+        $("#search-input").val("");
 
         alert("Cannot find city you searched for. Please try searching for valid city.");
     });
@@ -166,27 +166,26 @@ var fiveDayForecast = function(cityName) {
 // final section pertaining to search button click and saving city on page
 $("#search-form").on("submit", function(event) {
     event.preventDefault();
-
-    var cityName = $("#search-in").val();
-
+  
+    var cityName = $("#search-input").val();
+  
     if (cityName === "" || cityName == null) {
-        alert("Enter city name.");
-        event.preventDefault();
+      alert("Enter city name.");
+      event.preventDefault();
     } else {
-        WeatherNowSection(cityName);
-        fiveDayForecast(cityName);
+      WeatherNowSection(cityName);
+      fiveDayForecast(cityName);
     }
-});
-
-// search history entry that was already inputted is clicked
-$("#last-search-container").on("click", "p", function() {
+  });
+  
+  $("#last-search-container").on("click", "p", function(event) {
     var lastCityName = $(this).text();
     WeatherNowSection(lastCityName);
     fiveDayForecast(lastCityName);
-
+  
     var lastClickedCity = $(this);
     lastClickedCity.remove();
-});
+  });
   
   loadSearchHistory();
 
