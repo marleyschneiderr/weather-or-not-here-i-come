@@ -97,7 +97,10 @@ var WeatherNowSection = function(cityName) {
             var IconNowCode = response.current.weather[0].icon;
             IconNow.attr("src", `https://openweathermap.org/img/wn/${IconNowCode}@2x.png`);
 
-            
+            // temperature section
+            var currentTemperature = $("#temperature-now");
+            currentTemperature.text("Temperature: " + response.current.temp + " \u00B0F");
+
         })
     })
 }
