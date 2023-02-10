@@ -74,7 +74,7 @@ var WeatherNowSection = function(cityName) {
         var cityLong = response.coord.lon;
         var cityLat = response.coord.lat;
 
-        fetch('https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}')
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLong}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
         // getting response data from calling this API
         .then(function(response) {
             return response.json();
@@ -108,9 +108,33 @@ var WeatherNowSection = function(cityName) {
             // wind speed
             var WindSpeedNow = $("#wind-now");
             WindSpeedNow.text("Wind Speed: " + response.current.wind_speed + " MPH");
-
-
         })
+    })
+    .catch(function(err) {
+        // resetting the information that is searched
+        $("#search-in").val("");
+
+        alert("Cannot find city you searched for. Please try searching for valid city.");
+    });
+};
+
+// starting 5 day forecast section
+var fiveDayForecast = function(cityName) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+    // turn response into object
+    .then(function(response) {
+        return response.json()
+    })
+
+    .then(function(response) {
+        var cityLong = response.coord.lon;
+        var cityLat = response.coord.lat;
+
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLong}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
+            .then(function(response) {
+                return response.json();
+            })
+
     })
 }
 
