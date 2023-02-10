@@ -86,7 +86,18 @@ var WeatherNowSection = function(cityName) {
 
             // current weather container with border made in bootstrap
             var WeatherNowContainer = $("#weather-now-container");
-            WeatherNowContainer.addClass("#weather-now-container");
+            WeatherNowContainer.addClass("weather-now-container");
+
+            // icons
+            var nowTitle = $("#title-now");
+            var currentDay = moment().format("M/D/YYYY");
+            nowTitle.text(`${cityName} (${currentDay})`);
+            var IconNow = $("#weather-now-icon");
+            IconNow.addClass("weather-now-icon");
+            var IconNowCode = response.current.weather[0].icon;
+            IconNow.attr("src", `https://openweathermap.org/img/wn/${IconNowCode}@2x.png`);
+
+            
         })
     })
 }
