@@ -24,7 +24,7 @@ Created by Marley Schneider, Github: https://github.com/marleyschneiderr
 
 This website was designed to serve a 5-day forecast weather application that provides the user with upcoming weather forecasts in any desired city.
 
-![Screenshot of Full Webpage](assets/images/)
+![Screenshot of Full Webpage](./assets/images/API-Pic.png/)
 
 ## Credits
 
