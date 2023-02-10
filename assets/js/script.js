@@ -101,6 +101,15 @@ var WeatherNowSection = function(cityName) {
             var currentTemperature = $("#temperature-now");
             currentTemperature.text("Temperature: " + response.current.temp + " \u00B0F");
 
+            //humidity
+            var currentHumidity = $("#humidity-now");
+            currentHumidity.text("Humidity: " + response.current.humidity + "%");
+
+            // wind speed
+            var WindSpeedNow = $("#wind-now");
+            WindSpeedNow.text("Wind Speed: " + response.current.wind_speed + " MPH");
+
+
         })
     })
 }
