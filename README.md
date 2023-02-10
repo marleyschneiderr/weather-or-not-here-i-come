@@ -10,7 +10,7 @@ An application that anyone can use to manage their workday schedule.
 
 ## Link to Live WebPage
 
-https://marleyschneiderr.github.io/weather-or-not-here-i-come/?seach-input=seattle
+https://marleyschneiderr.github.io/weather-or-not-here-i-come/
 
 ## Installation
 
