@@ -45,6 +45,23 @@ var searchHistoryNames = function(cityName) {
     $("#search-in").val("");
 };
 
+// actually getting searches to show up in container 
+var loadingSearchHistory = function() {
+    var searchHistoryData = localStorage.getItem("SearchesSaved");
+
+    // if there are no previous searches, return false
+    if(!searchHistoryData) {
+        return false;
+    }
+
+    searchHistoryData = JSON.parse(searchHistoryData);
+
+    for (var i = 0; i < searchHistoryData.length; i++) {
+        searchHistoryNames(searchHistoryData[i]);
+    }
+};
+
+
 
 
 
