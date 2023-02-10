@@ -73,6 +73,12 @@ var WeatherNowSection = function(cityName) {
         // latitude and longitude 
         var cityLong = response.coord.lon;
         var cityLat = response.coord.lat;
+
+        fetch('https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}')
+        // getting response data from calling this API
+        .then(function(response) {
+            return response.json();
+        })
     })
 }
 
