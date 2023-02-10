@@ -8,7 +8,7 @@
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 
-var apiKey = "7ff1d8af886ebe90b5084ef41fcbb528";
+var apiKey = "463ce473edf257f39d0880275aa13e0d";
 var SearchesSaved = [];
 
 // cities that were searched already by the user
@@ -61,6 +61,20 @@ var loadingSearchHistory = function() {
     }
 };
 
+// using the open weather api to get and call data based on current weather
+var WeatherNowSection = function(cityName) {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}')
+    // getting response from api and turn it into objects on page
+    .then(function(response) {
+        return response.json();
+    })
+
+    .then(function(response) {
+        // latitude and longitude 
+        var cityLong = response.coord.lon;
+        var cityLat = response.coord.lat;
+    })
+}
 
 
 
