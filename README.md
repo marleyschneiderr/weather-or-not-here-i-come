@@ -5,8 +5,8 @@ Weather dashboard that runs in the browser and features dynamically updated HTML
 
 An application that anyone can use to manage their workday schedule.
 
-- My goal for this project was to 
-- This project taught me 
+- My goal for this project was use a third party API to allow a user to access weather data for a 5 day forecast in their preferred city. I wanted the user to be able to see the outlook for multiple cities of their choosing, be able to go back to their saved searches and access weather data again, and have the user be able to plan a trip accordingly from the accessed weather data.
+- This project taught me a LOT of new skills related to server-side third party APIs. I learned how to call an API, access my own personalized key through the open weather API, allow users to save searches in local storage related to cities they are interested in viewing a 5-day weather forecast for, and view the temperature, current humidity, wind speed, and various upcoming weather conditions for cities of their choosing. 
 
 ## Link to Live WebPage
 
