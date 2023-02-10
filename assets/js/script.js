@@ -180,9 +180,9 @@ document.querySelector("#search-form").addEventListener("submit", function(event
 
 document.querySelector("#last-search-container").addEventListener("click", function(event) {
   if (event.target.matches("p")) {
-    var lastcityName = event.target.textContent;
-    WeatherNowSection(lastcityName);
-    fiveDayForecast(lastcityName);
+    var lastcityname = event.target.textContent;
+    WeatherNowSection(lastcityname);
+    fiveDayForecast(lastcityname);
   
     var lastClickedCity = event.target;
     lastClickedCity.remove();
