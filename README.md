@@ -10,7 +10,7 @@ An application that anyone can use to manage their workday schedule.
 
 ## Link to Live WebPage
 
-
+https://marleyschneiderr.github.io/weather-or-not-here-i-come/?seach-input=seattle
 
 ## Installation
 
@@ -22,7 +22,7 @@ Created by Marley Schneider, Github: https://github.com/marleyschneiderr
 
 ## Usage
 
-This website was designed to serve as a organizer for a busy work day. This quiz is available for all people who would like to organize their workday and life around it.
+This website was designed to serve a 5-day forecast weather application that provides the user with upcoming weather forecasts in any desired city.
 
 ![Screenshot of Full Webpage](assets/images/)
 
