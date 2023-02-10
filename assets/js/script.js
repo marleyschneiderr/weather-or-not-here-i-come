@@ -63,7 +63,7 @@ var loadingSearchHistory = function() {
 
 // using the open weather api to get and call data based on current weather
 var WeatherNowSection = function(cityName) {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}') 
     // getting response from api and turn it into objects on page
     .then(function(response) {
         return response.json();
@@ -71,10 +71,10 @@ var WeatherNowSection = function(cityName) {
 
     .then(function(response) {
         // latitude and longitude 
-        var cityLong = response.coord.lon;
-        var cityLat = response.coord.lat;
+        var lon = response.coord.lon;
+        var lat = response.coord.lat;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLong}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${apiKey}&units=imperial`)
         // getting response data from calling this API
         .then(function(response) {
             return response.json();
@@ -127,10 +127,10 @@ var fiveDayForecast = function(cityName) {
     })
 
     .then(function(response) {
-        var cityLong = response.coord.lon;
-        var cityLat = response.coord.lat;
+        var lon = response.coord.lon;
+        var lat = response.coord.lat;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLong}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${apiKey}&units=imperial`)
         .then(function(response) {
             return response.json();
         })
@@ -164,10 +164,10 @@ var fiveDayForecast = function(cityName) {
 };
 
 // final section pertaining to search button click and saving city on page
-$("#search-form").on("submit", function(event) {
+document.querySelector("#search-form").addEventListener("submit", function(event) {
     event.preventDefault();
   
-    var cityName = $("#search-input").val();
+    var cityName = document.querySelector("#search-input").value;
   
     if (cityName === "" || cityName == null) {
       alert("Enter city name.");
@@ -176,18 +176,24 @@ $("#search-form").on("submit", function(event) {
       WeatherNowSection(cityName);
       fiveDayForecast(cityName);
     }
-  });
-  
-  $("#last-search-container").on("click", "p", function(event) {
-    var lastCityName = $(this).text();
+});
+
+document.querySelector("#last-search-container").addEventListener("click", function(event) {
+  if (event.target.matches("p")) {
+    var lastCityName = event.target.textContent;
     WeatherNowSection(lastCityName);
     fiveDayForecast(lastCityName);
   
-    var lastClickedCity = $(this);
+    var lastClickedCity = event.target;
     lastClickedCity.remove();
-  });
+  }
+});
   
-  loadSearchHistory();
+loadingSearchHistory();
+
+
+
+
 
 
 
