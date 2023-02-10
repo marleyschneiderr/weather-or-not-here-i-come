@@ -153,11 +153,43 @@ var fiveDayForecast = function(cityName) {
                 var forecastIconCode = response.daily[i].weather[0].icon;
                 forecastIcon.attr("src", `https://openweathermap.org/img/wn/${forecastIconCode}@2x.png`);
 
+                var forecastHumidity = $("#forecast-humidity-" + i);
+                forecastHumidity.text("Humidity: " + response.daily[i].humidity + "%");
 
+                var forecastTemperature = $("#forecast-temperature-" + i);
+                forecastTemperature.text("Temp: " + response.daily[i].temp.day + " \u00B0F");
             }
+        })
+})
+};
 
-    })
-}
+// final section pertaining to search button click and saving city on page
+$("#search-form").on("submit", function(event) {
+    event.preventDefault();
+
+    var cityName = $("#search-in").val();
+
+    if (cityName === "" || cityName == null) {
+        alert("Enter city name.");
+        event.preventDefault();
+    } else {
+        WeatherNowSection(cityName);
+        fiveDayForecast(cityName);
+    }
+});
+
+// search history entry that was already inputted is clicked
+$("#last-search-container").on("click", "p", function() {
+    var lastCityName = $(this).text();
+    WeatherNowSection(lastCityName);
+    fiveDayForecast(lastCityName);
+
+    var lastClickedCity = $(this);
+    lastClickedCity.remove();
+});
+  
+  loadSearchHistory();
+
 
 
 
