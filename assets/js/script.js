@@ -79,6 +79,15 @@ var WeatherNowSection = function(cityName) {
         .then(function(response) {
             return response.json();
         })
+
+        //  apply responses to the current weather area
+        .then(function(response) {
+            searchHistoryNames(cityName);
+
+            // current weather container with border made in bootstrap
+            var WeatherNowContainer = $("#weather-now-container");
+            WeatherNowContainer.addClass("#weather-now-container");
+        })
     })
 }
 
