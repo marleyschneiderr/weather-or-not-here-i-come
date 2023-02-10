@@ -131,9 +131,11 @@ var fiveDayForecast = function(cityName) {
         var cityLat = response.coord.lat;
 
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLong}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
-            .then(function(response) {
-                return response.json();
-            })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(response) {
+            console.log(response);
 
     })
 }
