@@ -12,13 +12,13 @@ var apiKey = "463ce473edf257f39d0880275aa13e0d";
 var SearchesSaved = [];
 
 // cities that were searched already by the user
-var searchHistoryNames = function(cityName) {
-    ('.earlier-search:contains("' + cityName + '")').remove();
+var searchHistoryNames = function(cityname) {
+    ('.earlier-search:contains("' + cityname + '")').remove();
 
     // the entry can be put in with the city name
     var historySearch = $("<p>");
     historySearch.addClass("earlier-search");
-    historySearch.text(cityName);
+    historySearch.text(cityname);
 
     //creating container that holds the entry that is submitted by pressing the button
     var containerSearch = $("<div>");
@@ -38,7 +38,7 @@ var searchHistoryNames = function(cityName) {
     }
 
     // putting the city name into the array of saved searches
-    SearchesSaved.push(cityName);
+    SearchesSaved.push(cityname);
     localStorage.setItem("SearchesSaved", JSON.stringify(SearchesSaved));
 
     // restarting the search when a new user comes to the page
@@ -62,7 +62,7 @@ var loadingSearchHistory = function() {
 };
 
 // using the open weather api to get and call data based on current weather
-var WeatherNowSection = function(cityName) {
+var WeatherNowSection = function(cityname) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}`) 
     // getting response from api and turn it into objects on page
     .then(function(response) {
@@ -82,7 +82,7 @@ var WeatherNowSection = function(cityName) {
 
         //  apply responses to the current weather area
         .then(function(response) {
-            searchHistoryNames(cityName);
+            searchHistoryNames(cityname);
 
             // current weather container with border made in bootstrap
             var WeatherNowContainer = $("#weather-now-container");
@@ -91,7 +91,7 @@ var WeatherNowSection = function(cityName) {
             // icons
             var nowTitle = $("#title-now");
             var currentDay = moment().format("M/D/YYYY");
-            nowTitle.text(`${cityName} (${currentDay})`);
+            nowTitle.text(`${cityname} (${currentDay})`);
             var IconNow = $("#weather-now-icon");
             IconNow.addClass("weather-now-icon");
             var IconNowCode = response.current.weather[0].icon;
@@ -119,8 +119,8 @@ var WeatherNowSection = function(cityName) {
 };
 
 // starting 5 day forecast section
-var fiveDayForecast = function(cityName) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+var fiveDayForecast = function(cityname) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}`)
     // turn response into object
     .then(function(response) {
         return response.json()
@@ -167,22 +167,22 @@ var fiveDayForecast = function(cityName) {
 document.querySelector("#search-form").addEventListener("submit", function(event) {
     event.preventDefault();
   
-    var cityName = document.querySelector("#search-input").value;
+    var cityname = document.querySelector("#search-input").value;
   
-    if (cityName === "" || cityName == null) {
+    if (cityname === "" || cityname == null) {
       alert("Enter city name.");
       event.preventDefault();
     } else {
-      WeatherNowSection(cityName);
-      fiveDayForecast(cityName);
+      WeatherNowSection(cityname);
+      fiveDayForecast(cityname);
     }
 });
 
 document.querySelector("#last-search-container").addEventListener("click", function(event) {
   if (event.target.matches("p")) {
-    var lastCityName = event.target.textContent;
-    WeatherNowSection(lastCityName);
-    fiveDayForecast(lastCityName);
+    var lastcityName = event.target.textContent;
+    WeatherNowSection(lastcityName);
+    fiveDayForecast(lastcityName);
   
     var lastClickedCity = event.target;
     lastClickedCity.remove();
