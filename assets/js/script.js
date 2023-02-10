@@ -144,7 +144,16 @@ var fiveDayForecast = function(cityName) {
                 var UpcomingCard = $(".forecast-card");
                 UpcomingCard.addClass("forecast-card-info");
 
-                
+                var forecastDate = $("#forecast-date-" + i);
+                date = moment().add(i, "d").format("M/D/YYYY");
+                forecastDate.text(date);
+
+                var forecastIcon = $("#future-icon-" + i);
+                forecastIcon.addClass("future-icon");
+                var forecastIconCode = response.daily[i].weather[0].icon;
+                forecastIcon.attr("src", `https://openweathermap.org/img/wn/${forecastIconCode}@2x.png`);
+
+
             }
 
     })
