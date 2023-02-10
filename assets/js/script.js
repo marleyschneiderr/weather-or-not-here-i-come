@@ -137,6 +137,16 @@ var fiveDayForecast = function(cityName) {
         .then(function(response) {
             console.log(response);
 
+            var WeatherForecastTitle = $("#weather-forecast-title");
+            WeatherForecastTitle.text("See Five Day Forecast:")
+
+            for (var i = 1; i <= 5; i++) {
+                var UpcomingCard = $(".forecast-card");
+                UpcomingCard.addClass("forecast-card-info");
+
+                
+            }
+
     })
 }
 
