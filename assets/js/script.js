@@ -148,6 +148,7 @@ var fiveDayForecast = function(cityname) {
                 date = moment().add(i, "d").format("M/D/YYYY");
                 forecastDate.text(date);
 
+                
                 var forecastIcon = $("#future-icon-" + i);
                 forecastIcon.addClass("future-icon");
                 var forecastIconCode = response.daily[i].weather[0].icon;
