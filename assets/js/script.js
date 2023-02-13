@@ -74,7 +74,7 @@ var WeatherNowSection = function(cityname) {
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid='  + apiKey`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
         // getting response data from calling this API
         .then(function(response) {
             return response.json();
@@ -130,7 +130,7 @@ var fiveDayForecast = function(cityname) {
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid='  + apiKey`)
         .then(function(response) {
             return response.json();
         })
