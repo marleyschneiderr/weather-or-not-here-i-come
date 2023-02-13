@@ -63,7 +63,7 @@ var loadingSearchHistory = function() {
 
 // using the open weather api to get and call data based on current weather
 var WeatherNowSection = function(cityname) {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&appid=' + apiKey")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + apiKey)
     // getting response from api and turn it into objects on page
     .then(function(response) {
         return response.json();
