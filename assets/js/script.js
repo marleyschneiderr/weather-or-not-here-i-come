@@ -63,7 +63,7 @@ var loadingSearchHistory = function() {
 
 // using the open weather api to get and call data based on current weather
 var WeatherNowSection = function(cityname) {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid='  + apiKey`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&appid=' + apiKey`)
     // getting response from api and turn it into objects on page
     .then(function(response) {
         return response.json();
@@ -74,7 +74,7 @@ var WeatherNowSection = function(cityname) {
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid='  + apiKey`)
         // getting response data from calling this API
         .then(function(response) {
             return response.json();
