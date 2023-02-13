@@ -13,7 +13,7 @@ var SearchesSaved = [];
 
 // cities that were searched already by the user
 var searchHistoryNames = function(cityname) {
-    ('.earlier-search:contains("' + cityname + '")').remove();
+    $('.earlier-search:contains("' + cityname + '")').remove();
 
     // the entry can be put in with the city name
     var historySearch = $("<p>");
