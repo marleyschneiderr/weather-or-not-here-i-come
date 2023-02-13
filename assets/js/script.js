@@ -130,7 +130,7 @@ var fiveDayForecast = function(cityname) {
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
-        fetch(‘http://api.openweathermap.org/data/2.5/forecast?lat=’ + lat + ‘&lon=’ + lon + ‘&units=imperial&appid=’  + apiKey)
+        fetch("http://api.openweathermap.org/data/2.5/forecast?lat=’ + lat + ‘&lon=’ + lon + ‘&units=imperial&appid=’  + apiKey)
         .then(function(response) {
             return response.json();
         })
